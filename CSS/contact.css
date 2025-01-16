@@ -1,0 +1,126 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styling */
+header {
+    background: #e8eaed;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+
+
+/* Main Content Area */
+.background {
+    flex: 1; /* Allows the content to take up available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #ffffff, #ffffff);
+    color: #fff;
+    padding: 20px;
+    padding-bottom: 60px; /* Ensures the footer doesn't overlap */
+}
+
+.contact-form {
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto; /* Centers the form horizontally */
+}
+
+.contact-form h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #2575fc;
+    text-align: center;
+}
+
+.contact-form p {
+    font-size: 14px;
+    margin: 10px 0 20px;
+    text-align: center;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.form-control label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-control input, 
+.form-control textarea, 
+.form-control button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form-control input:focus, 
+.form-control textarea:focus {
+    outline: none;
+    border-color: #2575fc;
+    box-shadow: 0 0 3px rgba(37, 117, 252, 0.5);
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+button {
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Footer Styling */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+    position: relative; /* Ensures it doesn't overlap */
+    z-index: 1;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .contact-form {
+        padding: 15px;
+    }
+}

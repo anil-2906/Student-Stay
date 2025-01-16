@@ -1,0 +1,105 @@
+/* Resetting some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container Styling */
+.container {
+    padding: 2rem 3rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #1e2a47;
+    margin-bottom: 1rem;
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* List Styling */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    font-size: 1.1rem;
+    margin: 0.8rem 0;
+    color: #555;
+}
+
+/* Container:Who We Are, Moto, Mission, Services */
+.whoweare-container,
+.moto-container,
+.mission-container,
+.services-container,
+.vision-container {
+    background-color: #f9fafb;
+    border-left: 5px solid #1e2a47;
+}
+.whoweare-container,
+.moto-container p,
+.mission-container p,
+.services-container p,
+.vision-container p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #1e2a47;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,101 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  margin: 0;
+  background: url('../assets/Abc.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.login-form h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.login-form select,
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  width: 100%;
+  background-color: #4c46f6;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #3a35d4;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.register-link a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 6px;
+  background-color: #f0f0f0;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  color: #666;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
