@@ -1,5 +1,4 @@
 <?php
-// This PHP file could be used to include the footer in various parts of your website
 ?>
 <!DOCTYPE html>
 <html lang="en">

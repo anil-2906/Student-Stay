@@ -1,5 +1,5 @@
 <?php
-// Include header PHP file
+
 include __DIR__ . '/../../Partials/header_view.php';
 ?>
 <div class="container whoweare-container">
@@ -37,6 +37,6 @@ include __DIR__ . '/../../Partials/header_view.php';
 </div>
 
 <?php
-// Include footer PHP file
+
 include __DIR__ . '/../../Partials/footer_view.php';
 ?>

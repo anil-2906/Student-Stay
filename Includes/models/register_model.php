@@ -1,35 +1,43 @@
 <?php
-class UserModel {
-    private $conn;
-    private $table = 'users';
+require_once "../models/db.php";
 
-    public function __construct($db) {
-        $this->conn = $db;
+class RegisterModel {
+    private $conn;
+
+    public function __construct() {
+        // Establish database connection
+        $db = new Database();
+        $this->conn = $db->conn;
     }
 
+    /**
+     * Register a new user.
+     *
+     * @param array $data User registration data
+     * @return bool Returns true on success, false on failure
+     */
     public function registerUser($data) {
-        $query = "INSERT INTO " . $this->table . " (fullname, dob, gender, email, password,confirmpassword, phone, address) 
-                  VALUES (:fullname, :dob, :gender, :email, :password,:confirmpassword, :phone, :address)";
-        $stmt = $this->conn->prepare($query);
-
-        // Bind parameters
-        $stmt->bindParam(':fullname', $data['fullname']);
-        $stmt->bindParam(':dob', $data['dob']);
-        $stmt->bindParam(':gender', $data['gender']);
-        $stmt->bindParam(':email', $data['email']);
-        $stmt->bindParam(':password', $data['password']);
-        $stmt->bindParam(':confirmpassword', $data['confirmpassword']);
-        $stmt->bindParam(':phone', $data['phone']);
-        $stmt->bindParam(':address', $data['address']);
+        $sql = "INSERT INTO users (userType, fullname, dob, gender, email, password, phone, address) 
+                VALUES (:userType, :fullname, :dob, :gender, :email, :password, :phone, :address)";
+        $stmt = $this->conn->prepare($sql);
 
         try {
-            if ($stmt->execute()) {
-                return true;
-            }
-        } catch (Exception $e) {
-            // Handle exception
-            error_log($e->getMessage());
+            $stmt->execute([
+                ':userType' => $data['userType'],
+                ':fullname' => $data['fullname'],
+                ':dob' => $data['dob'],
+                ':gender' => $data['gender'],
+                ':email' => $data['email'],
+                ':password' => password_hash($data['password'], PASSWORD_BCRYPT),
+                ':phone' => $data['phone'],
+                ':address' => $data['address'],
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            // Log error if needed
+            error_log("Error registering user: " . $e->getMessage());
+            return false;
         }
-        return false;
     }
 }
+?>

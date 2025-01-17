@@ -1,54 +1,24 @@
 <?php
-// home_model.php
 
-// Database connection configuration
-$host = 'localhost';
-$db = 'studentstay';
-$user = 'your_username';
-$pass = 'your_password';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Could not connect to the database $db :" . $e->getMessage());
+function getAccommodations()
+{
+    return [
+        ['type' => 'Single Rooms', 'price' => '€500/month', 'address' => '123 Single Lane, Paris, France', 'img' => 'singleroom.jpg'],
+        ['type' => 'Sharing Rooms', 'price' => '€400/month', 'address' => '456 Sharing Street, Paris, France', 'img' => 'sharingroom.jpg'],
+        ['type' => 'Studio', 'price' => '€450/month', 'address' => '789 Studio Avenue, Paris, France', 'img' => 'studio.jpg'],
+        ['type' => 'Apartment', 'price' => '€700/month', 'address' => '101 Apartment Blvd, Paris, France', 'img' => 'apartment.jpg'],
+    ];
 }
 
-// Function to fetch all accommodations
-function getAllAccommodations($pdo) {
-    $stmt = $pdo->query('SELECT * FROM accommodations');
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+function searchAccommodations($location = null, $move_in = null, $move_out = null, $accommodation_type = null)
+{
+    $allAccommodations = getAccommodations(); 
+
+    $filteredAccommodations = array_filter($allAccommodations, function ($accommodation) use ($accommodation_type) {
+        return $accommodation_type ? strtolower($accommodation['type']) === strtolower($accommodation_type) : true;
+    });
+
+    return $filteredAccommodations;
 }
 
-// Function to fetch accommodations based on filters
-function getFilteredAccommodations($pdo, $location, $moveInDate, $moveOutDate, $type) {
-    $sql = 'SELECT * FROM accommodations WHERE 1=1';
-    $params = [];
-
-    if (!empty($location)) {
-        $sql .= ' AND location LIKE :location';
-        $params[':location'] = '%' . $location . '%';
-    }
-
-    if (!empty($moveInDate)) {
-        $sql .= ' AND move_in_date <= :moveInDate';
-        $params[':moveInDate'] = $moveInDate;
-    }
-
-    if (!empty($moveOutDate)) {
-        $sql .= ' AND move_out_date >= :moveOutDate';
-        $params[':moveOutDate'] = $moveOutDate;
-    }
-
-    if (!empty($type)) {
-        $sql .= ' AND type = :type';
-        $params[':type'] = $type;
-    }
-
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute($params);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-// You can add more functions as needed
 ?>

@@ -6,20 +6,16 @@
     <title>Navigation Header</title>
     <link rel="stylesheet" href="../../CSS/header.css">
     <?php
-    // Include about.css only if the current page is about_view.php
     $current_page = basename($_SERVER['PHP_SELF']);
     if ($current_page == 'about_view.php') {
         echo '<link rel="stylesheet" href="../../CSS/about.css">';
     }
-    // Include contact.css only if the current page is contact_view.php
     if ($current_page == 'contact_view.php') {
         echo '<link rel="stylesheet" href="../../CSS/contact.css">';
     }
-    // Include favourites.css only if the current page is favourite_view.php
     if ($current_page == 'favourites_view.php') {
         echo '<link rel="stylesheet" href="../../CSS/fav.css">';
     }
-    // Include propertylist.css only if the current page is propertylist_view.php
     if ($current_page == 'propertylist_view.php') {
         echo '<link rel="stylesheet" href="../../CSS/propertylist.css">';
     }
